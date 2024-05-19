@@ -1,12 +1,13 @@
 package com.HMB.NotesProject.notes;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-
+@Slf4j
 @Controller
 @RequestMapping("/notes")
 public class NoteController {
@@ -20,7 +21,9 @@ public class NoteController {
     @GetMapping
     public ModelAndView getAllNotes(HttpSession session) {
         Integer userId = (Integer) session.getAttribute("userId");
+        log.info(userId.toString());
         if (userId == null) {
+            log.info("userId null");
             return new ModelAndView("redirect:/login");
         }
 
@@ -40,6 +43,7 @@ public class NoteController {
     @PostMapping
     public ModelAndView createNote(@ModelAttribute Note note, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("userId");
+        log.info(userId.toString());
         if (userId == null) {
             return new ModelAndView("redirect:/login");
         }

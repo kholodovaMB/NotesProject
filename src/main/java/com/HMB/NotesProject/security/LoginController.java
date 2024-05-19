@@ -31,7 +31,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ModelAndView loginUser(@ModelAttribute User user, HttpSession session) {
+    public ModelAndView loginUser(@ModelAttribute("user") User user, HttpSession session) {
         log.info(user.getUsername());
         Optional<User> exUser = userService.findByUsername(user.getUsername());
         if (exUser.isPresent()) {
