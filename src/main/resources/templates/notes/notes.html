@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notes</title>
+</head>
+<body>
+<h2>Notes</h2>
+<a href="/notes/new">Create New Note</a>
+<ul>
+    <li th:each="note : ${notes}">
+        <p th:text="${note.title}"></p>
+        <a th:href="@{'/notes/edit/' + ${note.id}}">Edit</a>
+        <a th:href="@{'/notes/delete/' + ${note.id}}">Delete</a>
+    </li>
+</ul>
+</body>
+</html>
+
+
