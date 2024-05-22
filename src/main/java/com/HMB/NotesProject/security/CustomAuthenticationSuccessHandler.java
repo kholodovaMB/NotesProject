@@ -18,11 +18,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
         Integer userId = userDetails.getId();
-        log.info("User ID after authentication: " + userId);
+//        log.info("User ID after authentication: " + userId);
         HttpSession session = request.getSession();
         session.setAttribute("userId", userId);
 
-        response.sendRedirect("/notes"); // Редірект після успішного логіну
+        response.sendRedirect("/notes");
     }
 
 }

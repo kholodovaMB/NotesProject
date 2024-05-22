@@ -42,7 +42,7 @@ public class SecurityConfig {
     @Bean
     public AuthenticationFailureHandler authenticationFailureHandler() {
         return (request, response, exception) -> {
-            log.info("Login failed: " + exception.getMessage());
+//            log.info("Login failed: " + exception.getMessage());
             response.sendRedirect("/login?error");
         };
     }

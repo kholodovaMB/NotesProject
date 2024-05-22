@@ -38,27 +38,11 @@ public class LoginController {
         log.info("Attempting to login user: {}", user.getUsername());
         return "redirect:/notes";
     }
-//    public ModelAndView loginUser(@ModelAttribute("user") User user, HttpSession session) {
-//        log.info("Attempting to login user: {}", user.getUsername());
-//
-//       Optional<User> exUser = userService.findByUsername(user.getUsername());
-//        if (exUser.isPresent()) {
-//            User existingUser = exUser.get();
-//            if (passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
-//                session.setAttribute("userId", existingUser.getId());
-//                log.info("User {} logged in successfully", existingUser.getUsername());
-//                return new ModelAndView("redirect:/notes");
-//            }
-//        }
-//        ModelAndView mav = new ModelAndView("login");
-//        mav.addObject("error", "Invalid username or password");
-//        return mav;
-//    }
 
     @GetMapping("/logout")
     public String logoutUser(HttpSession session) {
         session.invalidate();
-        log.info("User logged out");
+//        log.info("User logged out");
         return "redirect:/login";
     }
 }

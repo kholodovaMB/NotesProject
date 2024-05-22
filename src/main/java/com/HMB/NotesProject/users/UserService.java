@@ -24,10 +24,10 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
         if (!user.isPresent()) {
-            log.info("User not found with username: " + username);
+//            log.info("User not found with username: " + username);
             throw new UsernameNotFoundException("User not found");
         }
-        log.info("User found with username: " + username);
+//        log.info("User found with username: " + username);
         return new MyUserDetails(user.get());
     }
 

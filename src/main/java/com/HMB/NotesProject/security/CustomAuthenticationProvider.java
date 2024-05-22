@@ -25,9 +25,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
-        log.info("name"+ username);
+//        log.info("name"+ username);
         UserDetails userDetails = userService.loadUserByUsername(username);
-        log.info("name"+ userDetails.getUsername());
+//        log.info("name"+ userDetails.getUsername());
         if (userDetails == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }

@@ -1,5 +1,6 @@
 package com.HMB.NotesProject.security;
 import com.HMB.NotesProject.users.User;
+import com.HMB.NotesProject.users.UserDTO;
 import com.HMB.NotesProject.users.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class RegistrationController {
     @GetMapping("/register")
     public ModelAndView showRegistrationForm() {
         ModelAndView mav = new ModelAndView("register");
-        mav.addObject("user", new User());
+        mav.addObject("user", new UserDTO());
         return mav;
     }
 

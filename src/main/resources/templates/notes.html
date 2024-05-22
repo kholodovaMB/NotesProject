@@ -9,6 +9,7 @@
 <ul>
     <li th:each="note : ${notes}">
         <p th:text="${note.title}"></p>
+        <p th:text="${note.content}"></p>
         <a th:href="@{'/notes/edit/' + ${note.id}}">Edit</a>
         <a th:href="@{'/notes/delete/' + ${note.id}}">Delete</a>
     </li>
