@@ -21,7 +21,7 @@ public class NoteController {
     @GetMapping
     public ModelAndView getAllNotes(HttpSession session) {
         Integer userId = (Integer) session.getAttribute("userId");
-        log.info(userId.toString());
+        log.info("User ID after authentication: " + userId);
         if (userId == null) {
             log.info("userId null");
             return new ModelAndView("redirect:/login");
@@ -35,7 +35,7 @@ public class NoteController {
 
     @GetMapping("/new")
     public ModelAndView showCreateNoteForm() {
-        ModelAndView mav = new ModelAndView("create-note");
+        ModelAndView mav = new ModelAndView("notes/create-note");
         mav.addObject("note", new Note());
         return mav;
     }
@@ -60,7 +60,7 @@ public class NoteController {
         }
 
         Note note = noteService.getNoteById(id, userId);
-        ModelAndView mav = new ModelAndView("update-note");
+        ModelAndView mav = new ModelAndView("notes/update-note");
         mav.addObject("note", note);
         return mav;
     }
