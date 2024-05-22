@@ -21,7 +21,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList(); // або поверніть ролі користувача
+        return Collections.emptyList();
     }
 
     @Override

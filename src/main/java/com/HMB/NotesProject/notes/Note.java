@@ -1,6 +1,7 @@
 package com.HMB.NotesProject.notes;
 import com.HMB.NotesProject.users.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Note {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
+    @Size(max = 100)
     @Column(name = "title", nullable = false)
     private String title;
 

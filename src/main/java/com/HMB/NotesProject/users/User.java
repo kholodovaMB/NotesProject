@@ -1,6 +1,8 @@
 package com.HMB.NotesProject.users;
 import com.HMB.NotesProject.notes.Note;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,12 +22,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Size(max = 50)
     @Column(name = "username", nullable = false, unique = true)
     private String username;
-
+    @Size(max = 100)
     @Column(name = "email", nullable = false, unique = true)
     private String email;
-
+    @Size(max = 255)
     @Column(name = "password", nullable = false)
     private String password;
 
