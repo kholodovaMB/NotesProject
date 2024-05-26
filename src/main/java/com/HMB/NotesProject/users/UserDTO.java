@@ -1,7 +1,5 @@
 package com.HMB.NotesProject.users;
 
-import com.HMB.NotesProject.notes.Note;
-import com.HMB.NotesProject.notes.NoteDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +11,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class UserDTO {
     private Integer id;
     private String username;
     private String email;
     private String password;
     private LocalDate createdAt;
+
+    public UserDTO(Integer id, String username, String email, String password, LocalDate createdAt) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.createdAt = createdAt;
+    }
 
     public static UserDTO fromUser(User user) {
         UserDTO dto = new UserDTO();

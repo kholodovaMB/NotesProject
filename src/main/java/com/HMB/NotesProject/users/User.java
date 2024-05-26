@@ -1,5 +1,6 @@
 package com.HMB.NotesProject.users;
 import com.HMB.NotesProject.notes.Note;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -28,6 +29,7 @@ public class User {
     @Size(max = 100)
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+    @JsonIgnore
     @Size(max = 255)
     @Column(name = "password", nullable = false)
     private String password;
@@ -38,5 +40,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Note> notes;
+
 }
 
