@@ -26,7 +26,7 @@ public class NoteControllerApi {
         MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
         Integer userId = userDetails.getId();
 
-        log.info("User ID after authentication: " + userId);
+//        log.info("User ID after authentication: " + userId);
         List<Note> notes = noteService.getAllNotesByUserId(userId);
         List<NoteDTO> noteDTOs = notes.stream()
                 .map(NoteDTO::new)

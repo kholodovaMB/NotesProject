@@ -50,11 +50,11 @@ public class LoginControllerApi {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
             Integer userId = userDetails.getId();
-            log.info("User '{}' logged in successfully with ID: {}", userDetails.getUsername(), userId);
+//            log.info("User '{}' logged in successfully with ID: {}", userDetails.getUsername(), userId);
 
             return ResponseEntity.ok(Collections.singletonMap("userId", userId));
         } catch (BadCredentialsException ex) {
-            log.warn("Login failed for username: {}", userRequest.getUsername());
+//            log.warn("Login failed for username: {}", userRequest.getUsername());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Collections.singletonMap("error", "Invalid username or password"));
 
@@ -64,11 +64,11 @@ public class LoginControllerApi {
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public ResponseEntity<?>  logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        log.info("User '{}' logged in successfully with ID: {}" + auth.isAuthenticated());
         if (auth != null) {
+            log.info("User '{}' logged in successfully with name: {}" + auth.getName());
             SecurityContextHolder.clearContext();
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not loginned");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not logged");
     }
 
 }

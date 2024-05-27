@@ -1,4 +1,4 @@
-package com.HMB.NotesProject.security;
+package com.HMB.NotesProject.security.controllerwithTamplate;
 import com.HMB.NotesProject.users.User;
 import com.HMB.NotesProject.users.UserDTO;
 import com.HMB.NotesProject.users.UserService;
